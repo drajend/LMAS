@@ -1,0 +1,284 @@
+﻿
+@{
+    ViewBag.Title = "Valic LMAS";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <!--Participant Section-->
+            <div class="card">
+                <div class="card-body">                    
+                    <!--Account considered section-->
+                    <div class="row">
+                        <div class="col-sm"></div>
+                        <div class="col-sm">
+                            <div class="card text-center">
+                                <div class="card">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" style="color:red;">Account considered</li>
+                                        <li class="list-group-item"><label id="lblParticipantInfo">Participant name SSN-00-0000</label></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm"></div>
+                    </div>
+                    <!--End section-->
+                    <!--Acctount section-->
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">E</th>
+                                <th scope="col">S</th>
+                                <th scope="col">Still Employed?</th>
+                                <th scope="col">Account</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Group/Plan/CS</th>
+                                <th scope="col">Loan Type.</th>
+                                <th scope="col">Pen Ind.</th>
+                                <th scope="col">Loan Ind</th>
+                                <th scope="col">Vesting Applies</th>
+                                <th scope="col">Vested value</th>
+                                <th scope="col">Eligible (Loanable) Account Value</th>
+                                <th scope="col">Restricted Account Value</th>
+                                <th scope="col">TOV Loanable Account Value</th>
+                                <th scope="col">Outstanding Loan Balance</th>
+                                <th scope="col">Maximum Loan Possible (Before Escrow for Policy)</th>
+                                <th scope="col">Pending Loan</th>
+                                <th scope="col">Vesting Eff. Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="RowControl"></tbody>
+                    </table>
+                    <!--End section-->
+                </div>
+            </div>
+            <!--Participant end section-->
+            <div class="row">
+                <div class="col">
+                    <label id="lblMaxLoanWarn" class="Warnings" style="color:red;text-align:center;display:block"></label>
+                </div>
+            </div>
+            <div class="row" style="padding-top:10px;">
+                <!--Totals section-->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Totals
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">Eligible (Loanable) Account Value</div>
+                                <div class="col">Restricted Account Value</div>
+                                <div class="col">TOV Loanable Account Value</div>
+                                <div class="col">Outstanding Loan Balance</div>
+                            </div>
+                            <div class="row">
+                                <div class="col"><input class="form-control form-control-sm" disabled id="txtTotFixedAnnuity" type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" disabled id="txtTotMYEFA" type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" disabled id="txttotVarAnnuity" type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" disabled id="txtTotLoan" type="text" placeholder=""></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6" style="text-align:right;margin-top:7px;">Total Vested Value Available:</div>
+                                <div class="col-3">
+                                    <input class="form-control form-control-sm" disabled id="txtTotAnnuityAvail" type="text" placeholder="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6" style="text-align:right;margin-top:7px;">Greatest Loan Last 12 Months:</div>
+                                <div class="col-3"><input class="form-control form-control-sm" disabled id="txtHighLoan12" type="text" placeholder=""></div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" style="padding: .10rem 1.25rem !important;">
+                                    Other Carrier Balances
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6" style="text-align:right;margin-top:7px;">Outstanding Loan Balance:</div>
+                                        <div class="col-3"><input class="form-control form-control-sm" disabled id="txtOCOLB" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6" style="text-align:right;margin-top:7px;">Greatest Loan Last 12 Months:</div>
+                                        <div class="col-3"><input class="form-control form-control-sm" disabled id="txtOCGLB12Mth" type="text" placeholder=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding-top:5px;">
+                        <div class="card">
+                            <div class="card-header" style="padding: .10rem 1.25rem !important;">Accounts Not Considered</div>
+                            <div class="card-body" style="height:107px; background-color:#BBBBBB">
+                                <div class="container-fluid" style="background-color:white" id="tbExcludedAccount">                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Totals section End-->
+                <!--Loan Model section-->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Loan Model
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col"><label id="lblLoanAmount">Loan Amount Requested</label></div>
+                                <div class="col"><label id="lblInterestRate">Interest Rate</label></div>
+                                <div class="col"><label id="lblSurrenderRate">Surrender Rate</label></div>
+                                <div class="col"><label id="lblYears">Years</label></div>
+                                <div class="col"><label id="lblMonths" style="visibility:hidden">Months</label></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">         
+                                    <button type="button" class="btn btn-primary" style="height:15px;width:0px;padding:6px;margin-top:5px;float:right" disabled id="btnCommand"></button>
+                                </div>
+                                <div class="col"><input class="form-control form-control-sm" id="txtLoanAmount" disabled type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" id="txtInterestRate" disabled type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" id="txtSurrenderValue" disabled type="text" placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" id="txtYears" type="text" disabled placeholder=""></div>
+                                <div class="col"><input class="form-control form-control-sm" style="visibility:hidden" id="txtMonths" type="text" placeholder=""></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3" style="text-align:center"><label id="lblLoanPurpose">Loan Purpose:</label></div>
+                                <div class="col-3">
+                                    <select class="form-control form-control-sm rowDDpadding" id="cbLoanPurpose">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="col-3" style="text-align:right;margin-top:5px;"><label id="lblWaiveInitFee">Waive Init Fee:</label></div>
+                                <div class="col-3">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="cbWaiveInitFee">
+                                        <span class="custom-control-indicator"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3" style="text-align:center"><label id="lblPaymentMethod">Payment Method:</label></div>
+                                <div class="col-3">
+                                    <select class="form-control form-control-sm rowDDpadding" id="cbPaymentMethod">
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="col-3" style="text-align:right;margin-top:5px;"><label id="lblRepaymentFrequency">Repayment Freq:</label></div>
+                                <div class="col-3">
+                                    <select class="form-control form-control-sm rowDDpadding" name="cbRepaymentFrequency" id="cbRepaymentFrequency"></select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="card" id="divRouting" style="visibility:hidden">
+                                        <div class="card-header" style="padding: .10rem 1.25rem !important;">Financial Institution Information</div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-sm-6" style="text-align:center"><label id="lblRoutingNum" style="visibility:hidden">Routing Number:</label></div>
+                                                <div class="col-sm-6"><input class="form-control form-control-sm" style="visibility:hidden" id="txtRoutingNum" maxlength="9" type="text" placeholder=""></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12"><label id="lblBankName" style="color:red;visibility:hidden;">Bank Name Place Holder</label></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6" style="text-align:center"><label id="lblAccountNum" style="visibility:hidden">Account Number:</label></div>
+                                                <div class="col-sm-6"><input class="form-control form-control-sm" style="visibility:hidden" id="txtAccountNum" type="text" placeholder=""></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6" style="text-align:center"><label id="lblPhone" style="visibility:hidden">Phone Number:</label></div>
+                                                <div class="col-sm-6"><input class="form-control form-control-sm" maxlength="10" style="visibility:hidden" id="txtphone" type="text" placeholder=""></div>
+                                            </div>
+                                            <div class="row" style="visibility:hidden" id="rbSavings">
+                                                <div class="col-sm-6" style="text-align:center"><label id="lblAccountType" style="visibility:hidden">Account Type:</label></div>
+                                                <div class="col-sm-3">
+                                                    <label class="custom-control custom-radio">
+                                                        <input id="rbChecking" name="accounttype" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description exception">Checking</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label class="custom-control custom-radio">
+                                                        <input id="rbSavings" name="accounttype" type="radio" class="custom-control-input">
+                                                        <span class="custom-control-indicator"></span>
+                                                        <span class="custom-control-description exception">Savings</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center"><label id="lblFB001">FB001:</label></div>
+                                        <div class="col-sm-6"><input class="form-control form-control-sm" disabled id="lblFB001Value" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center"><label id="lblFP002">FP002:</label></div>
+                                        <div class="col-sm-6"><input class="form-control form-control-sm" disabled id="lblFP002Value" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center"><label id="lblFixedAmountLabel">Fixed Amount Required:</label></div>
+                                        <div class="col-sm-6"><input class="form-control form-control-sm" disabled id="lblFixedAmountLabelValue" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center;margin-top:10px;"><label id="lblLoanFee">Loan Fee:</label></div>
+                                        <div class="col-sm-6"><input class="form-control form-control-sm" disabled id="lblLoanFeeValue" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6" style="text-align:center;margin-top:10px;"><label id="lblTOVNeeded">TOV Needed:</label></div>
+                                        <div class="col-sm-6"><input class="form-control form-control-sm" disabled id="lblTOVneededValue" type="text" placeholder=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label id="lblLoanTypeCode" style="visibility:hidden">Using this Label in Loan Confirm Page</label>
+                        </div>
+                    </div>
+                </div>
+                <!--Loan Model section End-->
+            </div>
+            <div class="row" style="padding-top:10px;">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-9">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-primary WidthBtn" id="btnReset">Reset</button></div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-primary WidthBtn" disabled id="btnVesting">Apply Vesting</button></div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-primary WidthBtn" disabled id="btnCalculate">Calculate</button></div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-primary WidthBtn" disabled id="btnProcess">Process Loan</button></div>
+                                <div class="col-sm-2"><button type="button" class="btn btn-primary WidthBtn" id="btnCancel">Cancel</button></div>
+                                <div class="col-sm-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <label class="custom-control custom-checkbox" id="chkExcpt">
+                        <input type="checkbox" class="custom-control-input" disable id="chkException">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description exception">Exception Override</span>
+                    </label>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@ViewBag.QR" id="boolQR" />
+<input type="hidden" value="@ViewBag.UID" id="strUID" />
+<input type="hidden" value="@ViewBag.objID" id="strObjid" />
+<input type="hidden" id="rsLoaninfo" value="" />
+<input type="hidden" id="rsLoanModel" value="" />
+<input type="hidden" id="lmasData" value="" />
+<input type="hidden" id="strConfirm" value="" />
+
+@Scripts.Render("~/bundles/lmasJB")
+@Scripts.Render("~/bundles/LoanSetUp")

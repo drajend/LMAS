@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://BEPWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://BEPWS/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://BEPWS/">
+      <s:element name="DetErrMesg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SSNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AcctNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChannelInd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmNum" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumActiveLoans" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanPurpose" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="strSuperUser" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetErrMesgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DetErrMesgResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumActiveLoans" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MainDriver">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SSNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AcctNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChannelInd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SvcFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PLLInd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AcctArray" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanMaxAvail" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanMinAvail" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="EscrowAmt" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntRate" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="SurRate" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="SurChargeAmt" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ActiveLoans" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="MultiAcctEstimator" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Policy_loan_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HighestLoanAmount" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentLoanAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MainDriverResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SvcFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanMaxAvail" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanMinAvail" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="EscrowAmt" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntRate" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="SurRate" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="SurChargeAmt" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Policy_loan_code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModelLoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SSNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AcctNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UseMaxFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LoanReqAmt" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="TermYrs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SvcFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentReq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AcctArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PayFreq" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RepayMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="channeled" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMAL">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="Fee_Waiver_Flag" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsConfirmNum">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="MultiLoanFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntRate" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Group_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Plan_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Loanpurp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Loantype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MALError" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SuperUserFlg" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="HighestLoanAmount" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CurrentLoanAmount" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModelLoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModelLoanResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsMAL">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="dsConfirmNum">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="MultiLoanFlag" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IntRate" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="MALError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVhclCashVals">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Acct" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fb1" />
+            <s:element minOccurs="0" maxOccurs="1" name="fb2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVhclCashValsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fb1" />
+            <s:element minOccurs="0" maxOccurs="1" name="fb2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCannedComments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="intLowVal" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="intHighVal" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCannedCommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCannedCommentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLPend">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgsys" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vestArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConfirm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLPendResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vestArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLUpdateBankDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSSNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sABAroutingNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sBankAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sBankAccountType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PLLUpdateBankDetailsStatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLUpdateBankDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PLLUpdateBankDetailsStatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strConf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtFlag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessMaxFlag" />
+            <s:element minOccurs="1" maxOccurs="1" name="PLLUpdateStatus" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" />
+            <s:element minOccurs="1" maxOccurs="1" name="PLLUpdateStatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="varPllArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varDetailArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varVestedArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varArrayConfirmNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PLLStoreResult" />
+            <s:element minOccurs="0" maxOccurs="1" name="varPllArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QualityStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strConfirmNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAWDID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QualityStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="QualityStoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strRoutingNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBankName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="strErrorCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBankNameResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBankName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="strErrorCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertACH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRoutingNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBankName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFrequency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strACHAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBnkAccountNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBnkPhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBnkAccountType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strConfirmationNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strNumPays" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertACHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertACHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateACH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strConfirmationNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateACHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateACHResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVestingDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iSSN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iTaxInd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iGroupNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="iPlanNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVestingDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVestingDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetREAFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sGroupNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPlanNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetREAFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetREAFlagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaritalStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaritalStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMaritalStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParticipantMailingAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetParticipantMailingAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetParticipantMailingAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoanRepaymentMethod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loanId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loanType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loanFrequency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentRepayMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newRepayMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="achAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numberOfPays" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="firstPayDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="nextPayDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="achEndDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="abaNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccountType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankPhoneNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgSys" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="participantName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="group" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plan" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoanRepaymentMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateLoanRepaymentMethodResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePreUploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePreUploadDocsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddPreUploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileExtn" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="sFileSize" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFileMime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLastUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileBlob" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddPreUploadDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddPreUploadDocsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreUploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreUploadDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreUploadDocsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUploadedDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUploadedDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUploadedDocsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemovePreUploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFileSeqNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemovePreUploadDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemovePreUploadDocsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFileSeqNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveDocsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLastUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadDocsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ViewSuppDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sFileSeqNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ViewSuppDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ViewSuppDocsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sConfirmationNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateRequestResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfirmationNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sConfirmationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sStatusFlag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateConfirmationNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateConfirmationNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUploadDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteUploadDocsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPendingMortgageLoans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SSN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingMortgageLoansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingMortgageLoansResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoanMainByAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcctNO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoanMainByAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoanMainByAccountResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingFormLoansRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingFormLoansRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingFormLoansRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeletedPendingFormRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sConfirmationNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeletedPendingFormRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeletedPendingFormRequestResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingPLLByAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingPLLByAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPendingPLLByAccountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormRequiredSpecialHandlingFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sPlanId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormRequiredSpecialHandlingFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormRequiredSpecialHandlingFlagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLPendingFormReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="orgsys" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vestArray" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strFormTrnId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PLLPendingFormReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vestArray" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditCardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCreditDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strFormTrnId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoanDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strConfirmationNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varPllArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varDetailArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varVestedArray" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varArrayConfirmNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateLoanDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateLoanDetailsResult" />
+            <s:element minOccurs="0" maxOccurs="1" name="varErrorCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingFormLoansRequestByTaxID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingFormLoansRequestByTaxIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingFormLoansRequestByTaxIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetLoanReqExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iAccctNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sChannelInd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DetLoanReqExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sErrorCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sErrMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DetErrMesgSoapIn">
+    <wsdl:part name="parameters" element="tns:DetErrMesg" />
+  </wsdl:message>
+  <wsdl:message name="DetErrMesgSoapOut">
+    <wsdl:part name="parameters" element="tns:DetErrMesgResponse" />
+  </wsdl:message>
+  <wsdl:message name="MainDriverSoapIn">
+    <wsdl:part name="parameters" element="tns:MainDriver" />
+  </wsdl:message>
+  <wsdl:message name="MainDriverSoapOut">
+    <wsdl:part name="parameters" element="tns:MainDriverResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModelLoanSoapIn">
+    <wsdl:part name="parameters" element="tns:ModelLoan" />
+  </wsdl:message>
+  <wsdl:message name="ModelLoanSoapOut">
+    <wsdl:part name="parameters" element="tns:ModelLoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVhclCashValsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVhclCashVals" />
+  </wsdl:message>
+  <wsdl:message name="GetVhclCashValsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVhclCashValsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCannedCommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCannedComments" />
+  </wsdl:message>
+  <wsdl:message name="GetCannedCommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCannedCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PLLPendSoapIn">
+    <wsdl:part name="parameters" element="tns:PLLPend" />
+  </wsdl:message>
+  <wsdl:message name="PLLPendSoapOut">
+    <wsdl:part name="parameters" element="tns:PLLPendResponse" />
+  </wsdl:message>
+  <wsdl:message name="PLLUpdateBankDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:PLLUpdateBankDetails" />
+  </wsdl:message>
+  <wsdl:message name="PLLUpdateBankDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:PLLUpdateBankDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PLLUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:PLLUpdate" />
+  </wsdl:message>
+  <wsdl:message name="PLLUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:PLLUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PLLStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:PLLStore" />
+  </wsdl:message>
+  <wsdl:message name="PLLStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:PLLStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="QualityStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:QualityStore" />
+  </wsdl:message>
+  <wsdl:message name="QualityStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:QualityStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankName" />
+  </wsdl:message>
+  <wsdl:message name="GetBankNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertACHSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertACH" />
+  </wsdl:message>
+  <wsdl:message name="InsertACHSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertACHResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateACHSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateACH" />
+  </wsdl:message>
+  <wsdl:message name="UpdateACHSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateACHResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVestingDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVestingDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetVestingDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVestingDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetREAFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetREAFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetREAFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetREAFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaritalStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaritalStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetMaritalStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaritalStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetParticipantMailingAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetParticipantMailingAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetParticipantMailingAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetParticipantMailingAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoanRepaymentMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLoanRepaymentMethod" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoanRepaymentMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLoanRepaymentMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePreUploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePreUploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="DeletePreUploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePreUploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddPreUploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPreUploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="AddPreUploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPreUploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreUploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreUploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="GetPreUploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreUploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUploadedDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUploadedDocs" />
+  </wsdl:message>
+  <wsdl:message name="GetUploadedDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUploadedDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemovePreUploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemovePreUploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="RemovePreUploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemovePreUploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveDocs" />
+  </wsdl:message>
+  <wsdl:message name="RemoveDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="UploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ViewSuppDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:ViewSuppDocs" />
+  </wsdl:message>
+  <wsdl:message name="ViewSuppDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:ViewSuppDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfirmationNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateConfirmationNumber" />
+  </wsdl:message>
+  <wsdl:message name="UpdateConfirmationNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateConfirmationNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUploadDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteUploadDocs" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUploadDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteUploadDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingMortgageLoansSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingMortgageLoans" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingMortgageLoansSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingMortgageLoansResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoanMainByAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:LoanMainByAccount" />
+  </wsdl:message>
+  <wsdl:message name="LoanMainByAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:LoanMainByAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingFormLoansRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingFormLoansRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingFormLoansRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingFormLoansRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeletedPendingFormRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeletedPendingFormRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDeletedPendingFormRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeletedPendingFormRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingPLLByAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingPLLByAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingPLLByAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingPLLByAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormRequiredSpecialHandlingFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormRequiredSpecialHandlingFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetFormRequiredSpecialHandlingFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormRequiredSpecialHandlingFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="PLLPendingFormReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:PLLPendingFormReturn" />
+  </wsdl:message>
+  <wsdl:message name="PLLPendingFormReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:PLLPendingFormReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoanDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateLoanDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateLoanDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateLoanDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingFormLoansRequestByTaxIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingFormLoansRequestByTaxID" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingFormLoansRequestByTaxIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingFormLoansRequestByTaxIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DetLoanReqExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:DetLoanReqExists" />
+  </wsdl:message>
+  <wsdl:message name="DetLoanReqExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:DetLoanReqExistsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServicesSoap">
+    <wsdl:operation name="DetErrMesg">
+      <wsdl:input message="tns:DetErrMesgSoapIn" />
+      <wsdl:output message="tns:DetErrMesgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MainDriver">
+      <wsdl:input message="tns:MainDriverSoapIn" />
+      <wsdl:output message="tns:MainDriverSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModelLoan">
+      <wsdl:input message="tns:ModelLoanSoapIn" />
+      <wsdl:output message="tns:ModelLoanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVhclCashVals">
+      <wsdl:input message="tns:GetVhclCashValsSoapIn" />
+      <wsdl:output message="tns:GetVhclCashValsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedComments">
+      <wsdl:input message="tns:GetCannedCommentsSoapIn" />
+      <wsdl:output message="tns:GetCannedCommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PLLPend">
+      <wsdl:input message="tns:PLLPendSoapIn" />
+      <wsdl:output message="tns:PLLPendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdateBankDetails">
+      <wsdl:input message="tns:PLLUpdateBankDetailsSoapIn" />
+      <wsdl:output message="tns:PLLUpdateBankDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdate">
+      <wsdl:input message="tns:PLLUpdateSoapIn" />
+      <wsdl:output message="tns:PLLUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PLLStore">
+      <wsdl:input message="tns:PLLStoreSoapIn" />
+      <wsdl:output message="tns:PLLStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QualityStore">
+      <wsdl:input message="tns:QualityStoreSoapIn" />
+      <wsdl:output message="tns:QualityStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankName">
+      <wsdl:input message="tns:GetBankNameSoapIn" />
+      <wsdl:output message="tns:GetBankNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertACH">
+      <wsdl:input message="tns:InsertACHSoapIn" />
+      <wsdl:output message="tns:InsertACHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateACH">
+      <wsdl:input message="tns:UpdateACHSoapIn" />
+      <wsdl:output message="tns:UpdateACHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVestingDetails">
+      <wsdl:input message="tns:GetVestingDetailsSoapIn" />
+      <wsdl:output message="tns:GetVestingDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetREAFlag">
+      <wsdl:input message="tns:GetREAFlagSoapIn" />
+      <wsdl:output message="tns:GetREAFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaritalStatus">
+      <wsdl:input message="tns:GetMaritalStatusSoapIn" />
+      <wsdl:output message="tns:GetMaritalStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParticipantMailingAddress">
+      <wsdl:input message="tns:GetParticipantMailingAddressSoapIn" />
+      <wsdl:output message="tns:GetParticipantMailingAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanRepaymentMethod">
+      <wsdl:input message="tns:UpdateLoanRepaymentMethodSoapIn" />
+      <wsdl:output message="tns:UpdateLoanRepaymentMethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreUploadDocs">
+      <wsdl:input message="tns:DeletePreUploadDocsSoapIn" />
+      <wsdl:output message="tns:DeletePreUploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPreUploadDocs">
+      <wsdl:input message="tns:AddPreUploadDocsSoapIn" />
+      <wsdl:output message="tns:AddPreUploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreUploadDocs">
+      <wsdl:input message="tns:GetPreUploadDocsSoapIn" />
+      <wsdl:output message="tns:GetPreUploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadedDocs">
+      <wsdl:input message="tns:GetUploadedDocsSoapIn" />
+      <wsdl:output message="tns:GetUploadedDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePreUploadDocs">
+      <wsdl:input message="tns:RemovePreUploadDocsSoapIn" />
+      <wsdl:output message="tns:RemovePreUploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocs">
+      <wsdl:input message="tns:RemoveDocsSoapIn" />
+      <wsdl:output message="tns:RemoveDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocs">
+      <wsdl:input message="tns:UploadDocsSoapIn" />
+      <wsdl:output message="tns:UploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewSuppDocs">
+      <wsdl:input message="tns:ViewSuppDocsSoapIn" />
+      <wsdl:output message="tns:ViewSuppDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequest">
+      <wsdl:input message="tns:UpdateRequestSoapIn" />
+      <wsdl:output message="tns:UpdateRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfirmationNumber">
+      <wsdl:input message="tns:UpdateConfirmationNumberSoapIn" />
+      <wsdl:output message="tns:UpdateConfirmationNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUploadDocs">
+      <wsdl:input message="tns:DeleteUploadDocsSoapIn" />
+      <wsdl:output message="tns:DeleteUploadDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingMortgageLoans">
+      <wsdl:input message="tns:GetPendingMortgageLoansSoapIn" />
+      <wsdl:output message="tns:GetPendingMortgageLoansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoanMainByAccount">
+      <wsdl:input message="tns:LoanMainByAccountSoapIn" />
+      <wsdl:output message="tns:LoanMainByAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequest">
+      <wsdl:input message="tns:GetPendingFormLoansRequestSoapIn" />
+      <wsdl:output message="tns:GetPendingFormLoansRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeletedPendingFormRequest">
+      <wsdl:input message="tns:GetDeletedPendingFormRequestSoapIn" />
+      <wsdl:output message="tns:GetDeletedPendingFormRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPLLByAccount">
+      <wsdl:input message="tns:GetPendingPLLByAccountSoapIn" />
+      <wsdl:output message="tns:GetPendingPLLByAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormRequiredSpecialHandlingFlag">
+      <wsdl:input message="tns:GetFormRequiredSpecialHandlingFlagSoapIn" />
+      <wsdl:output message="tns:GetFormRequiredSpecialHandlingFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PLLPendingFormReturn">
+      <wsdl:input message="tns:PLLPendingFormReturnSoapIn" />
+      <wsdl:output message="tns:PLLPendingFormReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanDetails">
+      <wsdl:input message="tns:UpdateLoanDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateLoanDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequestByTaxID">
+      <wsdl:input message="tns:GetPendingFormLoansRequestByTaxIDSoapIn" />
+      <wsdl:output message="tns:GetPendingFormLoansRequestByTaxIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DetLoanReqExists">
+      <wsdl:input message="tns:DetLoanReqExistsSoapIn" />
+      <wsdl:output message="tns:DetLoanReqExistsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServicesSoap" type="tns:WebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DetErrMesg">
+      <soap:operation soapAction="http://BEPWS/DetErrMesg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MainDriver">
+      <soap:operation soapAction="http://BEPWS/MainDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModelLoan">
+      <soap:operation soapAction="http://BEPWS/ModelLoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVhclCashVals">
+      <soap:operation soapAction="http://BEPWS/GetVhclCashVals" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedComments">
+      <soap:operation soapAction="http://BEPWS/GetCannedComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLPend">
+      <soap:operation soapAction="http://BEPWS/PLLPend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdateBankDetails">
+      <soap:operation soapAction="http://BEPWS/PLLUpdateBankDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdate">
+      <soap:operation soapAction="http://BEPWS/PLLUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLStore">
+      <soap:operation soapAction="http://BEPWS/PLLStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QualityStore">
+      <soap:operation soapAction="http://BEPWS/QualityStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankName">
+      <soap:operation soapAction="http://BEPWS/GetBankName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertACH">
+      <soap:operation soapAction="http://BEPWS/InsertACH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateACH">
+      <soap:operation soapAction="http://BEPWS/UpdateACH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVestingDetails">
+      <soap:operation soapAction="http://BEPWS/GetVestingDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetREAFlag">
+      <soap:operation soapAction="http://BEPWS/GetREAFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaritalStatus">
+      <soap:operation soapAction="http://BEPWS/GetMaritalStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParticipantMailingAddress">
+      <soap:operation soapAction="http://BEPWS/GetParticipantMailingAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanRepaymentMethod">
+      <soap:operation soapAction="http://BEPWS/UpdateLoanRepaymentMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreUploadDocs">
+      <soap:operation soapAction="http://BEPWS/DeletePreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPreUploadDocs">
+      <soap:operation soapAction="http://BEPWS/AddPreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreUploadDocs">
+      <soap:operation soapAction="http://BEPWS/GetPreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadedDocs">
+      <soap:operation soapAction="http://BEPWS/GetUploadedDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePreUploadDocs">
+      <soap:operation soapAction="http://BEPWS/RemovePreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocs">
+      <soap:operation soapAction="http://BEPWS/RemoveDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocs">
+      <soap:operation soapAction="http://BEPWS/UploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewSuppDocs">
+      <soap:operation soapAction="http://BEPWS/ViewSuppDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequest">
+      <soap:operation soapAction="http://BEPWS/UpdateRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfirmationNumber">
+      <soap:operation soapAction="http://BEPWS/UpdateConfirmationNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUploadDocs">
+      <soap:operation soapAction="http://BEPWS/DeleteUploadDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingMortgageLoans">
+      <soap:operation soapAction="http://BEPWS/GetPendingMortgageLoans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoanMainByAccount">
+      <soap:operation soapAction="http://BEPWS/LoanMainByAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequest">
+      <soap:operation soapAction="http://BEPWS/GetPendingFormLoansRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeletedPendingFormRequest">
+      <soap:operation soapAction="http://BEPWS/GetDeletedPendingFormRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPLLByAccount">
+      <soap:operation soapAction="http://BEPWS/GetPendingPLLByAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormRequiredSpecialHandlingFlag">
+      <soap:operation soapAction="http://BEPWS/GetFormRequiredSpecialHandlingFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLPendingFormReturn">
+      <soap:operation soapAction="http://BEPWS/PLLPendingFormReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanDetails">
+      <soap:operation soapAction="http://BEPWS/UpdateLoanDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequestByTaxID">
+      <soap:operation soapAction="http://BEPWS/GetPendingFormLoansRequestByTaxID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetLoanReqExists">
+      <soap:operation soapAction="http://BEPWS/DetLoanReqExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServicesSoap12" type="tns:WebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DetErrMesg">
+      <soap12:operation soapAction="http://BEPWS/DetErrMesg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MainDriver">
+      <soap12:operation soapAction="http://BEPWS/MainDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModelLoan">
+      <soap12:operation soapAction="http://BEPWS/ModelLoan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVhclCashVals">
+      <soap12:operation soapAction="http://BEPWS/GetVhclCashVals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCannedComments">
+      <soap12:operation soapAction="http://BEPWS/GetCannedComments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLPend">
+      <soap12:operation soapAction="http://BEPWS/PLLPend" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdateBankDetails">
+      <soap12:operation soapAction="http://BEPWS/PLLUpdateBankDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLUpdate">
+      <soap12:operation soapAction="http://BEPWS/PLLUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLStore">
+      <soap12:operation soapAction="http://BEPWS/PLLStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QualityStore">
+      <soap12:operation soapAction="http://BEPWS/QualityStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankName">
+      <soap12:operation soapAction="http://BEPWS/GetBankName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertACH">
+      <soap12:operation soapAction="http://BEPWS/InsertACH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateACH">
+      <soap12:operation soapAction="http://BEPWS/UpdateACH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVestingDetails">
+      <soap12:operation soapAction="http://BEPWS/GetVestingDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetREAFlag">
+      <soap12:operation soapAction="http://BEPWS/GetREAFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaritalStatus">
+      <soap12:operation soapAction="http://BEPWS/GetMaritalStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParticipantMailingAddress">
+      <soap12:operation soapAction="http://BEPWS/GetParticipantMailingAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanRepaymentMethod">
+      <soap12:operation soapAction="http://BEPWS/UpdateLoanRepaymentMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePreUploadDocs">
+      <soap12:operation soapAction="http://BEPWS/DeletePreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPreUploadDocs">
+      <soap12:operation soapAction="http://BEPWS/AddPreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreUploadDocs">
+      <soap12:operation soapAction="http://BEPWS/GetPreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadedDocs">
+      <soap12:operation soapAction="http://BEPWS/GetUploadedDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePreUploadDocs">
+      <soap12:operation soapAction="http://BEPWS/RemovePreUploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveDocs">
+      <soap12:operation soapAction="http://BEPWS/RemoveDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDocs">
+      <soap12:operation soapAction="http://BEPWS/UploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ViewSuppDocs">
+      <soap12:operation soapAction="http://BEPWS/ViewSuppDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequest">
+      <soap12:operation soapAction="http://BEPWS/UpdateRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateConfirmationNumber">
+      <soap12:operation soapAction="http://BEPWS/UpdateConfirmationNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUploadDocs">
+      <soap12:operation soapAction="http://BEPWS/DeleteUploadDocs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingMortgageLoans">
+      <soap12:operation soapAction="http://BEPWS/GetPendingMortgageLoans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoanMainByAccount">
+      <soap12:operation soapAction="http://BEPWS/LoanMainByAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequest">
+      <soap12:operation soapAction="http://BEPWS/GetPendingFormLoansRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeletedPendingFormRequest">
+      <soap12:operation soapAction="http://BEPWS/GetDeletedPendingFormRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPLLByAccount">
+      <soap12:operation soapAction="http://BEPWS/GetPendingPLLByAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormRequiredSpecialHandlingFlag">
+      <soap12:operation soapAction="http://BEPWS/GetFormRequiredSpecialHandlingFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PLLPendingFormReturn">
+      <soap12:operation soapAction="http://BEPWS/PLLPendingFormReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLoanDetails">
+      <soap12:operation soapAction="http://BEPWS/UpdateLoanDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingFormLoansRequestByTaxID">
+      <soap12:operation soapAction="http://BEPWS/GetPendingFormLoansRequestByTaxID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetLoanReqExists">
+      <soap12:operation soapAction="http://BEPWS/DetLoanReqExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServices">
+    <wsdl:port name="WebServicesSoap" binding="tns:WebServicesSoap">
+      <soap:address location="https://d4.valic.com/BEPWS/WebServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServicesSoap12" binding="tns:WebServicesSoap12">
+      <soap12:address location="https://d4.valic.com/BEPWS/WebServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

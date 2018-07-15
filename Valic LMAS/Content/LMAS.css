@@ -1,0 +1,37 @@
+﻿.rowPadding{
+    padding: .05rem .1rem !important;
+    /*font-size:10px;*/
+}
+.rowDDpadding{
+    height: calc(1.4rem + 2px) !important;
+}
+.rowLabelmargin{
+    margin-bottom: .01rem;
+}
+.exception{
+    margin-top:5px;
+}
+.Warning{
+    color:red;
+    /*align-content:center;*/
+}
+.WidthBtn{
+    width:100% !important;
+}
+.form-control{
+    font-size:11px;
+}
+
+.heightlbl{
+    padding-top:7px;
+}
+
+.heightchklbl{
+    padding-top:4px !important;
+}
+
+.fundSecure{
+    height:12px;
+    padding:6px;
+    margin-top:5px;
+}

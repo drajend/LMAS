@@ -1,0 +1,219 @@
+﻿
+@{    
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                        <div class="row" style="padding-top:1px;">
+                        <!--Loan Information Section Start-->
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Loan Information
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="lblAccountNumberLabel">Account Number:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="lblAccountNumber"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            @*@Html.Label("lblLoanAmountLabel", "Loan Amount")*@
+                                            <label id="lblLoanAmountLabel">Loan Amount:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="RequestedLoan"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="lblLoanDate">Loan Effective Date:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="form-control form-control-sm" onchange="mskDatedateChange()" type="text" id="mskDate" placeholder="MM/DD/YYYY">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="lblLoanTermLabel">Loan Term:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="lblLoanTerm"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label id="lblLoanTypeLabel">Loan Type:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="lblLoanType"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Loan Information Section End-->
+                        <!--Funds To Secure Loan Section Start-->
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Funds to Secure Loan
+                                </div>
+                                <div class="card-body" id="divFundSecure" style="height: 148px;">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Funds To Secure Loan Section End-->
+                    </div>
+                    <!--Loan Delivery Start-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    Loan Delivery
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                            <div class="col-sm-1" style="text-align:right">
+                                                <label id="lblDeliveryOptions" class="heightlbl">Delivery Options:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <select class="form-control form-control-sm" id="cbDeliveryOption">
+                                                @*<option></option>*@
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <label class="custom-control custom-checkbox" id="lblptionalPayee">
+                                                <input type="checkbox" class="custom-control-input" id="chkOptionalPayee">
+                                                <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description heightchklbl">Optional Payee Address</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!---Optional Payee Information Start-->
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <label id="lblOptName" class="heightlbl">Name:</label>
+                                        </div>
+                                            <div class="col-sm-11">
+                                            <input class="form-control form-control-sm" id="txtOptName" disabled type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1">
+                                            <label id="lblStreetAddress">Street Address:</label>
+                                        </div>
+                                            <div class="col-sm-11"> 
+                                            <input class="form-control form-control-sm" disabled id="txtStreetAddr0" data-id="0" onblur="streetBlur(this)" type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1"></div>
+                                            <div class="col-sm-11"><input class="form-control form-control-sm" disabled id="txtStreetAddr1" data-id="1" onblur="streetBlur(this)" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1"></div>
+                                            <div class="col-sm-11"><input class="form-control form-control-sm" disabled id="txtStreetAddr2" data-id="2" onblur="streetBlur(this)" type="text" placeholder=""></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-1"><label class="heightlbl">City:</label></div>
+                                        <div class="col-sm-2"><input class="form-control form-control-sm" disabled id="txtCity" type="text" placeholder=""></div>
+                                            <div class="col-sm-1"><label class="heightlbl">State:</label></div>
+                                        <div class="col-sm-2"><input class="form-control form-control-sm" disabled id="txtState" type="text" placeholder=""></div>
+                                            <div class="col-sm-1"><label>Zip Code:</label></div>
+                                        <div class="col-sm-2"><input class="form-control form-control-sm" disabled id="txtZipCode" type="text" placeholder=""></div>
+                                            <div class="col-sm-1"><label class="heightlbl">Country:</label></div>
+                                        <div class="col-sm-2"><input class="form-control form-control-sm" disabled id="txtCountry" type="text" placeholder=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Optional Payee Information End-->
+                        </div>
+                    </div>
+                    <!--Loan Delivery End-->
+                    <!--Financial Institution Information Start-->
+                    <div class="row" id="divFinancialInfo">
+                        
+                    </div>
+                    <!--Financial Institution Information End-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="custom-control custom-checkbox" id="lblSurrenderWaiver">
+                                <input type="checkbox" class="custom-control-input" id="chkSurrenderWaiver">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description heightchklbl">Per term of the contract, client meets the Surrender Charge Waiver</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!--Button Section Starts-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3">
+                                            <button type="button" id="cmdSendVsys" class="btn btn-primary btn-sm WidthBtn"><b>Send to V-System</b></button>                                            
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button type="button" id="cmdCancel" class="btn btn-primary btn-sm WidthBtn"><b>Cancel</b></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Button Section Ends-->
+                        <div class="row" id="divMortgageLoan" style="margin:auto;text-align:center">
+                    </div>
+                    <!--Quality Review Section Starts-->
+                        <div class="row" id="divQualityReview">
+                        
+                    </div>
+                    <!--Qulaity review Ends-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @*<div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">LMAS Add Comments</h5>
+            </div>*@
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="cboCannedCmnts" class="form-control-label">Comments:</label>
+                        <select class="form-control form-control-sm" id="cboCannedCmnts"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtComments" class="form-control-label">Reason:</label>
+                        <textarea class="form-control" rows="3" id="txtComments"></textarea>
+                    </div>
+                    <div style="align-content:center">
+                        <label id="lblwarn" style="color:red;"></label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnDone" class="btn btn-primary">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/lmasJB")
+@Scripts.Render("~/bundles/LoanSetUp")
+@Scripts.Render("~/bundles/LoanConfirm")
